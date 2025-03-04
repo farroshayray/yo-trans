@@ -35,3 +35,10 @@
     color: #dfdfdf;
     margin-top: 2rem;
   }
+
+  .link-text-footer {
+    color: #dfdfdf;
+  }
+  .link-text-footer:hover {
+    color: #0933a7 !important;
+  }

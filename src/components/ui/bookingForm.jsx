@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useRouter } from "next/router";
 
 const BookingForm = ({className}) => {
   useEffect(() => {
@@ -10,17 +11,28 @@ const BookingForm = ({className}) => {
 
   const [departure, setDeparture] = useState("");
   const [destination, setDestination] = useState("");
+  const [busClass, setBusClass] = useState("economic");
   const [date, setDate] = useState("");
+  const router = useRouter();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(`Keberangkatan: ${departure}, Tujuan: ${destination}, Tanggal: ${date}`);
+    router.push({
+      pathname: "/bookConfirm",
+      query: {
+        departure,
+        destination,
+        busClass,
+        date,
+      }
+    });
+
   };
 
   return (
     <div className={`container ${className}`}>
       <div className="booking-card card shadow-md p-4">
-        <h3 className="text-center mb-4">Booking Travel</h3>
+        <h3 className="text-center mb-4">Book Your Trip</h3>
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
             <label className="form-label">Keberangkatan</label>
@@ -49,6 +61,20 @@ const BookingForm = ({className}) => {
               <option value="surabaya">Surabaya</option>
               <option value="bali">Bali</option>
               <option value="medan">Medan</option>
+            </select>
+          </div>
+          <div className="mb-3">
+            <label className="form-label">Kelas Bus</label>
+            <select
+              className="form-select"
+              value={busClass}
+              onChange={(e) => setBusClass(e.target.value)}
+              required
+            >
+              <option value="economic">Economic</option>
+              <option value="business">Business</option>
+              <option value="executive">Executive</option>
+              <option value="sleeper">Sleeper</option>
             </select>
           </div>
 
