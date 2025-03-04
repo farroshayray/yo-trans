@@ -8,6 +8,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --bs-primary: #1b0075; /* Warna primary baru */
+  --bs-primary-rgb: 255, 87, 51; /* RGB untuk warna primary */
 }
 
 @media (prefers-color-scheme: dark) {
