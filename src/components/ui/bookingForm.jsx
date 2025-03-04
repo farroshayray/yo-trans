@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useRouter } from "next/router";
 
 const BookingForm = ({className}) => {
   useEffect(() => {
@@ -11,10 +12,13 @@ const BookingForm = ({className}) => {
   const [departure, setDeparture] = useState("");
   const [destination, setDestination] = useState("");
   const [date, setDate] = useState("");
+  const router = useRouter();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     alert(`Keberangkatan: ${departure}, Tujuan: ${destination}, Tanggal: ${date}`);
+    router.push(`/bookConfirm`);
+
   };
 
   return (

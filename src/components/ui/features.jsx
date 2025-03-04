@@ -7,7 +7,7 @@ function Features() {
   return (
     <div className='my-10 mx-auto'>
         <Container>
-            <Row className='gap-4'>
+            <Row className='gap-y-4'>
                 <Col className='d-flex justify-content-center'>
                     <Card style={{ width: '18rem' }}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="navy" class="bi bi-percent" viewBox="0 0 16 16" className='my-3 mx-auto'>
