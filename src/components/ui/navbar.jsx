@@ -2,8 +2,21 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { useRouter } from 'next/router';
 
 function Navbar1() {
+  const router = useRouter();
+  const scrollToFooter = () => {
+    router.push("/home").then(() => {
+      setTimeout(() => {
+        const footer = document.querySelector("#myFooter");
+        if (footer) {
+          footer.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 500);
+    });
+  };
+
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container className='d-flex justify-content-between align-items-center'>
@@ -21,7 +34,7 @@ function Navbar1() {
           <Nav className="justify-content-center mx-auto">
             <div className=" d-flex flex-column flex-lg-row">
                 <Nav.Link href="/" className='nav-link-hover'>Home</Nav.Link>
-                <Nav.Link href="#link" className='nav-link-hover'>About</Nav.Link>
+                <Nav.Link onClick={scrollToFooter} className='nav-link-hover'>About</Nav.Link>
                 <Nav.Link href="#link" className='nav-link-hover'>Agent</Nav.Link>
                 <NavDropdown title="Contact Us" id="basic-nav-dropdown" className='nav-link-hover'>
                     <NavDropdown.Item 
