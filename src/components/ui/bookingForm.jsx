@@ -17,6 +17,15 @@ const BookingForm = ({className}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const accessToken = localStorage.getItem("access_token");
+
+    if (!accessToken) {
+      alert("Please login first.");
+      router.push("/login");
+      return;
+    }
+
     router.push({
       pathname: "/bookConfirm",
       query: {
@@ -37,7 +46,7 @@ const BookingForm = ({className}) => {
           <div className="mb-3">
             <label className="form-label">Departure</label>
             <select
-              className="form-select"
+              className="form-select cursor-pointer"
               value={departure}
               onChange={(e) => setDeparture(e.target.value)}
               required
@@ -52,7 +61,7 @@ const BookingForm = ({className}) => {
           <div className="mb-3">
             <label className="form-label">Destination</label>
             <select
-              className="form-select"
+              className="form-select cursor-pointer"
               value={destination}
               onChange={(e) => setDestination(e.target.value)}
               required
@@ -66,7 +75,7 @@ const BookingForm = ({className}) => {
           <div className="mb-3">
             <label className="form-label">Bus Class</label>
             <select
-              className="form-select"
+              className="form-select cursor-pointer"
               value={busClass}
               onChange={(e) => setBusClass(e.target.value)}
               required
@@ -83,7 +92,7 @@ const BookingForm = ({className}) => {
             <label className="form-label">Departure Date</label>
             <input
               type="date"
-              className="form-control"
+              className="form-control cursor-pointer"
               value={date}
               onChange={(e) => setDate(e.target.value)}
               required
