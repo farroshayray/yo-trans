@@ -35,14 +35,14 @@ const BookingForm = ({className}) => {
         <h3 className="text-center mb-4">Book Your Trip</h3>
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
-            <label className="form-label">Keberangkatan</label>
+            <label className="form-label">Departure</label>
             <select
               className="form-select"
               value={departure}
               onChange={(e) => setDeparture(e.target.value)}
               required
             >
-              <option value="">Pilih Keberangkatan</option>
+              <option value="">Choose Departure Place</option>
               <option value="jakarta">Jakarta</option>
               <option value="bandung">Bandung</option>
               <option value="yogyakarta">Yogyakarta</option>
@@ -50,21 +50,21 @@ const BookingForm = ({className}) => {
           </div>
 
           <div className="mb-3">
-            <label className="form-label">Tujuan</label>
+            <label className="form-label">Destination</label>
             <select
               className="form-select"
               value={destination}
               onChange={(e) => setDestination(e.target.value)}
               required
             >
-              <option value="">Pilih Tujuan</option>
+              <option value="">Choose Your Destination</option>
               <option value="surabaya">Surabaya</option>
               <option value="bali">Bali</option>
               <option value="medan">Medan</option>
             </select>
           </div>
           <div className="mb-3">
-            <label className="form-label">Kelas Bus</label>
+            <label className="form-label">Bus Class</label>
             <select
               className="form-select"
               value={busClass}
@@ -74,12 +74,13 @@ const BookingForm = ({className}) => {
               <option value="economic">Economic</option>
               <option value="business">Business</option>
               <option value="executive">Executive</option>
+              <option value="doubledecker">Double Decker</option>
               <option value="sleeper">Sleeper</option>
             </select>
           </div>
 
           <div className="mb-3">
-            <label className="form-label">Tanggal Keberangkatan</label>
+            <label className="form-label">Departure Date</label>
             <input
               type="date"
               className="form-control"
@@ -90,7 +91,7 @@ const BookingForm = ({className}) => {
           </div>
 
           <button type="submit" className="btn btn-primary w-100">
-            Pesan Sekarang
+            Book Now
           </button>
         </form>
       </div>
