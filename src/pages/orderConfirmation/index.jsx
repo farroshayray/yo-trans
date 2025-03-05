@@ -36,13 +36,18 @@ const OrderConfirmation = () => {
     };
 
     try {
+      const accessToken = localStorage.getItem("access_token");
+
       const response = await fetch(`${API_BASE_URL}/transaction/create`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${accessToken}`,
         },
         body: JSON.stringify(transactionData),
       });
+      console.log("Response status:", response.status);
+      console.log("Response body:", await response.json());
 
       if (response.ok) {
         alert("Transaksi berhasil! Anda akan dialihkan ke halaman utama.");
