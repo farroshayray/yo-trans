@@ -14,6 +14,18 @@
     background-color: #001f73 !important;
 }
 
+.logout-button1 {
+  background-color: #940000 !important;
+  color: #ffffff !important;
+  border: none;
+  padding: 0.2rem 0.5rem !important;
+  border-radius: 1rem;
+}
+
+.logout-button1:hover {
+  background-color: #c50000 !important;
+}
+
 .booking-card {
     background-color: #ffffff !important;
     border-radius: 2rem !important;
